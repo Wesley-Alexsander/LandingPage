@@ -1,0 +1,564 @@
+/*         Variaveis Globais        */
+:root {
+    --primary-color: #0a1128;
+    --secondary-color: crimson;
+    --white-color: #ffffff;
+    --light-grey-color: #eee;
+    --gap: 3rem;
+    
+}
+
+/*                     Formatando Pagina                  */
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipo de Unidade que será usada, neste caso "rem" */
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    color: var(--primary-color); /*todo texto de body tera essa cor*/
+    line-height: 1.5;
+}
+
+/* Formatando os tipos de texto/conteudo */
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-size: 8rem;
+    text-transform: uppercase;
+}
+h2 {
+    
+    font-size: 4.5rem; /* o tamanho do titulo sera de 4rem = 40px */
+    margin-bottom: 4rem; /*a margem abaixo do titulo sera de 40rem = 40px */
+    text-transform: uppercase; /*a font estara em caixa alta ou com as letrar grandes*/
+    line-height: 1.2; /*o espaço entre as linhas do titulo sera de 1.2*/
+}
+
+    
+h3 {
+    font-size: 3.5rem;
+    
+}
+h4 {
+    font-size: 3rem;
+    
+}
+h5 {
+    font-size: 2.5rem;
+    
+}
+
+h6 {
+    font-size: 2rem;
+    
+}
+
+p {
+    margin-bottom: 3rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+table caption {
+    font-style: italic;
+    font-size: 1.6rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+table td, table th {
+    white-space: nowrap;
+    padding: 0.5rem;
+    text-align: left;
+    border: 0.1rem solid var(--light-grey-color);
+}
+
+tfoot td , table th{
+    background-color: var(--light-grey-color);
+}
+
+
+/*           class main = "classes principais"      */
+
+
+/*
+Obs:"serão as classes utilizadas mais de uma vez"
+*/
+
+.main-bg { /* "main-background" */
+
+    background-image: url(../img/Main\ Pg.svg);
+    background-size: cover;
+    background-position: center center;
+    color: var(--white-color);
+}
+
+.white-bg { /* "main-background white" */
+
+    background-color: var(--white-color);
+    color: var(--primary-color);
+   
+}
+
+.main-content { /*"main-content"*/
+
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 10rem var(--gap);
+    align-items: center;
+}
+
+.main-section { /*"main-section = altura principal dos conteudos/seções*/
+
+    min-height: 100vh;
+    
+}
+
+.menu-spacing {
+    height: 65px;
+}
+
+
+/*                    Classes do  Menu                   */
+
+
+.menu { /*      é o aside        */
+
+    position: fixed; /*o menu fica fixo no lugar, descendo junto com o scroll*/
+    top: 0; /* Menu vai ficar colado no top*/
+    left: 0; /* Menu vai ficar colado na esquerda*/
+    right: 0; /* Menu vai ficar colado na direita*/
+    width: 100%; /* a largura do menu ser de 100%*/
+    border-bottom: var(--light-grey-color) solid 0.1rem; /* a bordar tera a cor da variavel sera solida e tera 0.1rem = 1px*/
+    z-index: 1;
+    
+}
+
+.menu-content { /*      Section html        */
+
+    display: flex; /*faz com que o conteudo tenha a flexibilidade de ficar ao lado do outro*/
+    justify-content: space-between; /* da uma justificativa ao conteudo dizendo que eu quero um espaço entre os conteudos*/
+    padding-top: 0; /*tira o paddin do top fazendo com que o menu se ajuste ao  tamanho conteudo*/
+    padding-bottom: 0; /*tira o paddin de baixo fazendo com que o menu se ajuste ao  tamanho conteudo*/
+}
+
+.menu h1 {
+
+    font-size: 2.3rem; /* 23px de font  */
+    color: var(--primary-color); /*a cor da font vai ser o azul setado pela variavel global*/
+}
+
+.menu a {
+
+    text-decoration: none; /*tira a decoração dos links*/
+}
+
+.menu h1 a {
+
+    color: inherit; /* o link = "a" esta herdando a cor de h1*/
+}
+
+.menu ul { /*   É a lista dentro do aside */
+
+    list-style: none; /*retira o estilo da lista*/
+    display: flex; /* gera flexibilidade na lista fazendo os itens dela ficarem um ao lado do outro*/
+}
+
+
+.menu ul li a { /* estou definindo que quero os links dentro da lista*/
+
+    display: block; /*como ele é display inline mudamos para display:block para conseguirmos afatar os links criados de forma mais facil*/
+    padding: 2rem;  
+    font-size: 1.8rem;  /*a fonte tera o tamanho de 1.8rem = 18px */
+    color: var(--primary-color);
+    font-weight: bold; /*a font sera em negrito */
+    position: relative; /*  faz com que o link tenha o apenas o tamanho do conteudo armazenado dentro dele, que no caso é o nome de cada link*/
+}
+
+.menu ul li a::after { /* after = "apos o link" */
+
+    content: ''; /* cria um conteudo vazio*/
+    position: absolute; /* a posição dele nunca vai mudar pois é absoluta */
+    bottom: 1rem; /*é igual a 1px em baixo*/
+    left: 50%; /* tem 50% do tamanho da esquerda para a direita*/
+    width: 0; /* a largura dele sera 0 */
+    height: 0.2rem; /* a altura sera de meio px*/
+    background-color: var(--secondary-color); /* a cor sera vermelha*/
+    transition: all 200ms ease-in-out; /* e ele tera uma transição total inicial e final de 200 milisegundos*/
+}
+
+.menu ul li a:hover::after { /*   ao passar o mouse por cima o elemento apos o link tera uma ação */
+    
+    width: 50%; /* sua largura sera de 50%*/
+    left: 25%; /*e ele iniciara 25% para a esquerda*/
+}
+
+
+
+/*         1º SECTION = PRIMEIRO CONTEUDO  TEXTO/IMAGEM     */
+
+.home-content {  /*    todo o conteudo do home   */
+
+    position: relative; /* a posição do conteudo sera relativa aos outros elementos em volta*/ 
+    /*top: -4rem;*/ /* estou subitraindo 4rem = 40px do espaço que tem entre o conteudo e o top*/
+    display: grid; /* estou dizendo que o conteudo é uma grade*/
+    grid-template-columns: 1fr 1.5fr; /*e que a grade tera duas colunas uma com 1fragmento e outra com 1.5fragmento ou seja a segunda é um pouco maior */
+    gap: var(--gap); /* estou dando um gap = espaço de 3rem = 30px*/
+    min-height: 100vh; /* estou dizendo que a altura do conteudo é de 100vh*/
+}
+
+.home-text { /*    texto do home     */
+
+    display: flex; /* o texto dentro da grid tera um display flexivel*/
+    flex-flow: column wrap; /*estou dizendo que o flex direction é column e que quero um flex wrap*/
+    justify-content: center; /*estou dizendo que quero que o conteudo se alinhe ao centro */
+    font-weight: bold;
+}
+
+.home-img img { /*     imagem do home    */
+
+    max-width: 100%; /* a imagem tera uma largura maxima de 100% relativa ao pai dela que seria o section do html*/
+    height: auto; /*a altura do elemento sera calculada e reproduzida automaticamente pelo navegador */
+}
+
+.close-menu {
+    display: none;
+}
+/*         2º SECTION = SEGUNDO CONTEUDO  3-TEXTOS          */
+
+.intro-content {
+    max-width: 80rem;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.intro-content b {
+    text-decoration:underline;
+    text-transform: uppercase;
+}
+
+/*         3º SECTION = TERCEIRO CONTEUDO  PRIMEIROS PASSOS          */
+
+.passos-content {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.passos-content p {
+    font-weight: bold;
+}
+
+
+.grid-main-heading {
+    margin-bottom: 1rem;
+}
+
+.grid-description {
+    margin-bottom: 6rem;
+}
+
+.grid-one {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    counter-reset: grid-counter;
+
+}
+
+.grid-one h3 {
+    
+    position: relative;
+    padding-left: 5rem;
+    padding-bottom: 2rem;
+}
+
+.grid-one h3::before {
+    counter-increment: grid-counter;
+    content: counter(grid-counter);
+    position: absolute;
+    font-size: 8rem;
+    font-style: italic;
+    top: -4rem;
+    left: -2rem;
+    transform: rotate(5deg);
+}
+
+
+/*              SECTION = GALLERY IMG                   */
+
+
+.gallery-content {
+    
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.grid-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    counter-reset: grid-counter;
+
+}
+
+.img-grid {
+    width: 100%;
+    max-width: 36rem;
+    max-height: 36rem;
+    overflow: hidden;
+}
+
+.img-grid img {
+    transition: all 300ms ease-in-out;
+}
+
+.img-grid img:hover {
+    transform: translate(3%, 3%) scale(1.2) rotate(5deg);
+}
+
+
+/*         Section Pricing = Seção tabela de preços     */
+
+.responsive-table {
+    width: 100%;
+    overflow:hidden ;
+    overflow-x: auto;
+    
+}
+
+
+
+
+/*         Section form = Seção formulario     */
+
+.contact-form {
+    grid-column: span 2;
+}
+
+
+.contact-form .form-grid {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+.form-grid legend {
+    font-style: italic;
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+    font-weight: bold;
+}
+
+.form-group {
+    flex: 1 1 320px;
+
+}
+
+.form-group  label {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.form-group input, .form-group textarea {
+    border: none;
+    background-color: var(--white-color);
+    padding: 1.5rem 2rem;
+    width: 100%;
+    font-size: 2rem;
+    outline: none;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  box-shadow: 0 0 10px 2px var(--secondary-color);
+}
+
+.full-width {
+    width: 100%;
+    flex: 1 1 100%;
+}
+
+.form-group button {
+    border: 0.2rem solid var(--white-color);
+    background: none;
+    color: var(--white-color);
+    padding: 1.5rem 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+}
+
+.form-group button:hover {
+    background: var(--white-color);
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.form-group ::placeholder {
+    color: var(--light-grey-color);
+}
+
+/*         Section footer= Seção rodapé    */
+
+.footer {
+    text-align: center;
+    font-size: 1.6rem;
+  }
+  
+  .footer a {
+      text-decoration: none;
+    color: var(--primary-color);
+  }
+  
+  .heart {
+    color: var(--secondary-color);
+  }
+  
+  .footer p {
+    margin: 0;
+    padding: 3rem;
+  }
+
+
+  /*            Media Queries           */
+
+  @media (max-width: 800px) {
+    .menu {
+        bottom: 0;
+        text-align: center;
+
+    }
+
+    .menu-content, .menu-content ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .menu-content {
+        height: 100vh;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2.5rem;
+    }
+
+
+    .close-menu-label::after {
+        content: '☰';
+        position: fixed;
+        z-index: 3;
+        top: 1rem;
+        right: 2rem;
+        background-color: rgba(12, 10, 40, 0.9);
+        color: var(--white-color);
+        line-height: 3rem;
+        font-size: 3rem;
+        width: 3rem;
+        height: 3rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        text-align: center;
+        cursor: pointer;    
+    }
+
+    .close-menu:checked~.menu {
+        display: block;
+    }
+
+    .close-menu:checked~.close-menu-label::after {
+        display: block;
+        content: 'X';
+    }
+
+    .menu-spacing {
+        display: none;
+    }
+
+
+
+
+
+    .home-content, .grid-one, .grid-gallery {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-one, .gallery-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .grid-gallery {
+        width: auto;
+    }
+
+   .form-img {
+       display: none;
+   }
+
+   .home-text h2{
+       font-size: 3rem;
+   }
+
+   .home-text p{
+    font-size: 2rem;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(12, 10, 40, 0.9);
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    border-radius: 50%;
+    transform: rotate(-90deg);
+    text-decoration: none;
+    border: 0.1rem solid var(--white-color);
+    
+
+}
+}
