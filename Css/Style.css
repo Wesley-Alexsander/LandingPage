@@ -130,10 +130,12 @@ Obs:"serão as classes utilizadas mais de uma vez"
 
     min-height: 100vh;
     
+    
 }
 
 .menu-spacing {
     height: 65px;
+    top: 0;
 }
 
 
@@ -239,9 +241,7 @@ Obs:"serão as classes utilizadas mais de uma vez"
     height: auto; /*a altura do elemento sera calculada e reproduzida automaticamente pelo navegador */
 }
 
-.close-menu {
-    display: none;
-}
+
 /*         2º SECTION = SEGUNDO CONTEUDO  3-TEXTOS          */
 
 .intro-content {
@@ -346,6 +346,11 @@ Obs:"serão as classes utilizadas mais de uma vez"
     transform: translate(3%, 3%) scale(1.2) rotate(5deg);
 }
 
+/*         Section Vantagens = Vantages de se estudar  */
+.vantagens-content {
+    font-weight: bold;
+}
+
 
 /*         Section Pricing = Seção tabela de preços     */
 
@@ -363,6 +368,7 @@ Obs:"serão as classes utilizadas mais de uma vez"
 
 .contact-form {
     grid-column: span 2;
+    
 }
 
 
@@ -372,6 +378,7 @@ Obs:"serão as classes utilizadas mais de uma vez"
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--gap);
+    
 }
 
 .form-grid legend {
@@ -389,6 +396,7 @@ Obs:"serão as classes utilizadas mais de uma vez"
 .form-group  label {
     display: block;
     margin-bottom: 1rem;
+    
 }
 
 .form-group input, .form-group textarea {
@@ -398,6 +406,13 @@ Obs:"serão as classes utilizadas mais de uma vez"
     width: 100%;
     font-size: 2rem;
     outline: none;
+    
+}
+
+.form-img img { /*     imagem do home    */
+
+    max-width: 100%; 
+    height: auto;
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -439,6 +454,7 @@ Obs:"serão as classes utilizadas mais de uma vez"
   .footer a {
       text-decoration: none;
     color: var(--primary-color);
+    font-weight: bold;
   }
   
   .heart {
@@ -448,6 +464,10 @@ Obs:"serão as classes utilizadas mais de uma vez"
   .footer p {
     margin: 0;
     padding: 3rem;
+  }
+  
+  .close-menu {
+      display: none;
   }
 
 
@@ -481,7 +501,6 @@ Obs:"serão as classes utilizadas mais de uma vez"
         font-size: 2.5rem;
     }
 
-
     .close-menu-label::after {
         content: '☰';
         position: fixed;
@@ -513,10 +532,6 @@ Obs:"serão as classes utilizadas mais de uma vez"
         display: none;
     }
 
-
-
-
-
     .home-content, .grid-one, .grid-gallery {
       grid-template-columns: 1fr;
     }
@@ -543,22 +558,22 @@ Obs:"serão as classes utilizadas mais de uma vez"
     font-size: 2rem;
 }
 
+
 .back-to-top {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: rgba(12, 10, 40, 0.9);
-    width: 4rem;
-    height: 4rem;
+    background: var(--white-color);
+    width: 5rem;
+    height: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--white-color);
     border-radius: 50%;
+    color: var(--primary-color);
     transform: rotate(-90deg);
+    border: 0.1rem solid var(--primary-color);
     text-decoration: none;
-    border: 0.1rem solid var(--white-color);
-    
+  }
 
-}
 }
